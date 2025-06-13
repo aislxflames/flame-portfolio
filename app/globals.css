@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+
+  --color-appricon-500: #fe2c2c;
+  --color-cherry-500: #ff0054;
+  --color-white-200: #f1f1f1
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  @apply font-montserrat;
+  color-scheme: light dark;
+  color: white;
+  background-color: #0b0b0b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+@keyframes load {
+  from {
+    transform: translateX(-20px)
   }
+
+  to {
+
+    transform: translateX(0)
+  }
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.menubtn li {
+  @apply border-2 py-1 px-3 rounded-xl border-[#0b0b0b] bg-gray-900/40 backdrop-blur-2xl;
+}
+
+.container {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: center;
 }

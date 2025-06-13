@@ -1,0 +1,63 @@
+
+
+
+.float {
+  animation: float 1.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+  transform: translateY(0);
+}
+50%{
+  transform: translateY(-30px);
+}
+100%{
+  transform: translateY(0);
+}
+}
+
+
+.profile{
+  position: relative;
+
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.profile::after, .profile::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    background-image: conic-gradient(from var(--angle),red, blue, purple, red);
+
+    /* background-image: conic-gradient(from var(--angle),transparent 40%, blue); */
+
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    border-radius: 100%;
+    padding: 4em;
+    animation: 3s spin linear infinite;
+}
+
+.profile::before{
+    filter: blur(1.5rem);
+    opacity: 0.9;
+}
+
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
