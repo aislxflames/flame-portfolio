@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Home = () => {
   return (
-    <section id="home" className={`flex md:flex-row flex-col md:justify-around justify-center md:px-20 sm:px-10 px-5 font-montserrat h-[100vh] ${stylesbg.anibg} items-center`}>
+    <section id="home" className={`flex md:flex-row flex-col md:justify-around justify-center md:px-20 sm:px-10 px-5 font-montserrat h-[100vh] ${stylesbg.anibg} items-center overflow-hidden`}>
       <div className="left relative flex flex-col gap-5">
         <div className='z-10 flex flex-col gap-5 md:items-start items-center'>
           <h1 className="font-extrabold md:text-6xl text-6xl">
@@ -57,12 +57,10 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className='bg-appricon-500/30 rounded-full h-[30em] w-[38em] absolute top-[-10%] left-[-30%] blur-2xl'></div>
       </div>
 
       <div className="right relative md:block flex flex-col justify-center items-center">
         <img className={`${styles.float} w-[40vw] md:w-[60vw]`} src="/computer.png" alt="" />
-        <div className='bg-cherry-500/30 rounded-full h-[28em] w-[25em] absolute top-0 left-0 blur-2xl'></div>
         <div className='rounded-xl overflow-hidden opacity-60 bg-black/10 backdrop-blur-2xl'>
           <Spotify wide className='z-10 b-10' link="https://open.spotify.com/track/23Jw6HlYfuhyllJhm3WPSc?si=9539c6b08d0a42f7" />
         </div>

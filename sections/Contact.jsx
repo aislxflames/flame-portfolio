@@ -3,7 +3,7 @@ import stylesbg from "../styles/background.module.css"
 
 const Contact = () => {
   return (
-    <section id="contact" className={`flex justify-around px-20 font-montserrat h-[100vh] ${stylesbg.anibg} items-center`}>
+    <section id="contact" className={`flex justify-around md:px-20 px-8 font-montserrat h-[100vh] ${stylesbg.anibg} items-center`}>
       <div className="bg-black/40 backdrop-blur-2xl w-[30em] h-[35em] p-6 rounded-xl mt-20 gap-6 flex flex-col">
         <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-linear-270 from-appricon-500 via-pink-800 to-cherry-500">Get me hired</h1>
         <p className="text-gray-400 text-sm">You can directly email me from here.</p>

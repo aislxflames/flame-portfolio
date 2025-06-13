@@ -19,16 +19,16 @@ const About = () => {
         <p className=" text-justify text-gray-300 whitespace-nowarp text-sm ">
           I am a full-stack developer with a strong command of modern web and backend technologies. I specialize in building scalable and responsive applications using frameworks like Next.js for the frontend and Python for backend services. My expertise also includes working with JavaScript, MongoDB, and Java, allowing me to develop robust, end-to-end solutions. I’m comfortable handling everything from database design to user interface development, and I enjoy solving complex problems by combining clean code with practical architecture.
         </p>
-        <div className="flex md:flex-row flex-col gap-5">
-          <button className="text-sm font-bold bg-linear-120 from-appricon-500 to-cherry-500 py-2 px-4 rounded-xl hover:scale-105 transition-all duration-200 ease hover:shadow-xl hover:shadow-appricon-500 flex justify-center items-center gap-4">
-            Download CV
-            <img width={20} src="/download.svg" alt="" />
+        <div className="flex gap-5">
+          <button className="text-sm font-bold bg-linear-120 from-appricon-500 to-cherry-500 py-2 px-4 rounded-xl hover:scale-105 transition-all duration-200 ease hover:shadow-xl hover:shadow-appricon-500 flex justify-center items-center gap-3">
+            DownloadCV
+            <img width={20} src="/download.svg" />
           </button>
           <Link href="#portfolio">
-          <button className="text-sm font-bold bg-linear-120 from-black/50 to-gray-950/40 py-2 px-4 rounded-xl hover:sca ffle-105 transition-all duration-200 ease hover:shadow-xl hover:shadow-cherry-500 flex justify-center gap-4 border-2 border-appricon-500">
-            Projects
-            <img width={20} src="/projects.svg" alt="" />
-          </button>
+            <button className="text-sm font-bold bg-linear-120 from-black/50 to-gray-950/40 py-2 px-4 rounded-xl hover:sca ffle-105 transition-all duration-200 ease hover:shadow-xl hover:shadow-cherry-500 flex justify-center gap-4 border-2 border-appricon-500">
+              Projects
+              <img width={20} src="/projects.svg" alt="" />
+            </button>
           </Link>
         </div>
 

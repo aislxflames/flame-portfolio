@@ -9,15 +9,15 @@ import Codestack from "@/components/Codestack";
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("projects");
   return (
-    <section id="portfolio" className={`portfolio overflow-y-scroll flex justify-around px-20 font-montserrat h-[100vh] ${stylesbg.anibg} items-center `}>
-      <div className=" flex flex-col items-center justify-center gap-2 pt-25">
-        <h1 className="md:text-4xl text-2xl font-extrabold text-transparent bg-clip-text bg-linear-90 from-appricon-500 to-cherry-500">Portfolio Showcase</h1>
-        <p className="text-sm w-[70%] text-center">
+    <section id="portfolio" className={`portfolio overflow-y-scroll overflow-hidden flex justify-around md:px-20 font-montserrat h-[100vh] ${stylesbg.anibg} items-center `}>
+      <div className=" flex flex-col items-center md:mt-16 justify-center gap-2 ">
+        <h1 className="text-shadow-[0_0_25px_red]  md:text-4xl text-2xl font-extrabold text-transparent bg-clip-text bg-linear-90 from-appricon-500 to-cherry-500">Portfolio Showcase</h1>
+        <p className="text-sm md:w-[70%] w-[90%] text-center">
           Showcasign my work and achievements, including projects, certificates, and skills acquired through Codestack. 
         </p>
 
         <div className="bg-black/20 backdrop-blur-2xl md:w-[40em] w-[20em] text-[16px] h-[5em] rounded-xl flex justify-around items-center">
-          <button onClick={() => { setActiveTab("projects") }} className={`bg-black/20 hover:bg-red-900/50 w-[90%] flex flex-col items-center justify-center  h-[90%] rounded-l-xl transition-all duration-300 ${activeTab ===  'projects' ? 'bg-red-800' : ''}`}>
+          <button onClick={() => { setActiveTab("p px-2rojects") }} className={`bg-black/20 hover:bg-red-900/50 w-[90%] flex flex-col items-center justify-center  h-[90%] rounded-l-xl transition-all duration-300 ${activeTab ===  'projects' ? 'bg-red-800' : ''}`}>
             <img width={20} src="/projects.svg" alt="" />
             Projects
           </button>
