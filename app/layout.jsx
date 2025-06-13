@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import SessionWrapper from "@/components/Auth/SessionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Home | Flame Portfolio",
   description: "Flame Portfolio - Aislx's Personal Portfolio Fullstack Developer",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "Flame Portfolio",
     description: "Aislx's Personal Portfolio Fullstack Developer",
@@ -39,14 +41,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <SessionWrapper>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${montserratSans.variable} antialiased`}
         >
           <Navbar />
           {children}
         </body>
-      </SessionWrapper>
     </html>
   );
 }
