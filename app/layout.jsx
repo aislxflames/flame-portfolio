@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     title: "Flame Portfolio",
     description: "Aislx's Personal Portfolio Fullstack Developer",
-    url: "https://portfolio.theflams.fun",
+    url: "https://portfolio.theflames.fun",
     images: [
       {
         url: "https://portfolio.theflams.fun/profile.png",
