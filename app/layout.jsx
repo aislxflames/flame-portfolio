@@ -18,13 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Home | Flame Portfolio",
+  title: "Home | Aislx Flames",
   description: "Flame Portfolio - Aislx's Personal Portfolio Fullstack Developer",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Flame Portfolio",
+    title: "Aislx Flames",
     description: "Aislx's Personal Portfolio Fullstack Developer",
     url: "https://portfolio.theflames.fun",
     images: [
