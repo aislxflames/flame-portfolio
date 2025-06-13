@@ -29,7 +29,7 @@ export const metadata = {
     url: "https://portfolio.theflames.fun",
     images: [
       {
-        url: "https://portfolio.theflams.fun/profile.png",
+        url: "https://portfolio.theflames.fun/profile.png",
         width: 1200,
         height: 630,
         alt: "Flame Portfolio Open Graph Image",
