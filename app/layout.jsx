@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Home | Aislx Flames",
+  title: "Explore | Aislx Flames",
   description: "Flame Portfolio - Aislx's Personal Portfolio Fullstack Developer",
   icons: {
     icon: "/favicon.ico",
