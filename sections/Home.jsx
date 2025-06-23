@@ -60,7 +60,7 @@ const Home = () => {
       </div>
 
       <div className="right relative md:block flex flex-col justify-center items-center">
-        <img className={`${styles.float} w-[50vw] md:w-[60vw]`} src="/computer.png" alt="" />
+        <img className={`${styles.float} w-[50vw] md:w-[60vw] lg:w-[45rem]`} src="/computer.png" alt="" />
         <div className='rounded-xl overflow-hidden opacity-60 bg-black/10 backdrop-blur-2xl'>
           <Spotify wide className='z-10 b-10' link="https://open.spotify.com/track/23Jw6HlYfuhyllJhm3WPSc?si=9539c6b08d0a42f7" />
         </div>
