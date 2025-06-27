@@ -1,0 +1,21 @@
+.gbg {background: radial-gradient(100% 100% at var(--4-x-position) var(--4-y-position), #830101 -90%, transparent),radial-gradient(100% 100% at var(--5-x-position) var(--5-y-position), #75000c -95%, transparent),#00082e;animation-name: main; animation-iteration-count: infinite; animation-duration: 2s; transition-timing-function: ease-in;}@property --4-x-position {
+      syntax: '<percentage>';
+        inherits: false;
+        initial-value: 20%;
+      }@property --4-y-position {
+        syntax: '<percentage>';
+          inherits: false;
+          initial-value: 80%;
+        }@property --5-x-position {
+      syntax: '<percentage>';
+        inherits: false;
+        initial-value: 80%;
+      }@property --5-y-position {
+        syntax: '<percentage>';
+          inherits: false;
+          initial-value: 20%;
+        }:root {--4-x-position: 20%;--4-y-position: 80%;--5-x-position: 80%;--5-y-position: 20%;}
+    @keyframes main {
+      25% {--4-x-position: 15%;--4-y-position: 15%;--5-x-position: 85%;--5-y-position: 80%;}50% {--4-x-position: 80%;--4-y-position: 15%;--5-x-position: 15%;--5-y-position: 85%;}
+    }
+    

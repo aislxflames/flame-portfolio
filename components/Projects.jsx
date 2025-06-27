@@ -2,6 +2,28 @@
 
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -10,37 +32,40 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch('/api/projects', { cache: 'no-store' });
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await res.json(); // ✅ fixed: 'response' ➜ 'res'
-        console.log(data);
+        const res = await fetch("/api/projects", { cache: "no-store" });
+        if (!res.ok) throw new Error("Network error");
+        const data = await res.json();
         setProjects(data);
-      } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
+      } catch (err) {
+        console.error(err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchProjects(); 
+    fetchProjects();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="text-white">Loading...</p>;
 
   return (
-    <div className="grid md:grid-cols-3 rounded-xl gap-3 h-[50vh]">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      className="grid md:grid-cols-3 gap-4"
+    >
       {projects.map((p) => (
-        <Card
-          key={p._id}
-          title={p.title || "Untitled Project"}
-          description={p.content || "No description provided."}
-          previewImg={p.image || "/test.png"}
-          url={p.url}
-        />
+        <motion.div key={p._id} variants={cardVariants}>
+          <Card
+            title={p.title || "Untitled"}
+            description={p.content || "No description"}
+            previewImg={p.image || "/test.png"}
+            url={p.url}
+          />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
