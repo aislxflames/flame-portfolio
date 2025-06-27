@@ -19,6 +19,7 @@ const Codestack = () => {
     <div className="grid lg:grid-cols-8 md:grid-cols-6 sm:grid-cols-4 grid-cols-2 overflow-y-scroll scroll gap-3 h-[50vh]">
       {skills.map((s, i) => (
         <motion.div
+          key={i}
           variants={fadeInVariants}
           initial="hidden"
           whileInView="show"
