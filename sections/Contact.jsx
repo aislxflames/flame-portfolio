@@ -1,45 +1,121 @@
-import stylesbg from "../styles/background.module.css"
-import { easeIn, motion } from "motion/react"
+import { useRef, useState } from "react";
+import stylesbg from "../styles/background.module.css";
+import { motion } from "motion/react";
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
+  const form = useRef(null);
+  const [sent, setSent] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_8kodu14",         // your EmailJS service ID
+        "template_isgkobu",        // your EmailJS template ID
+        form.current,
+        "i4xL3wKbhCajbjElb"        // your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent:", result.text);
+          setSent(true);
+          toast.success("Message sent!", {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+        },
+        (error) => {
+          console.error("Email failed:", error.text);
+          toast.error("Failed to send message.", {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+        }
+      );
+  };
+
   return (
-    <section id="contact" className={`flex justify-around md:px-20 px-8 font-montserrat h-[100vh] ${stylesbg.anibg} items-center`}>
+    <section
+      id="contact"
+      className={`flex justify-around md:px-20 px-8 font-montserrat h-[100vh] ${stylesbg.anibg} items-center`}
+    >
       <motion.div
-        initial={{
-          opacity: 0,
-          y: 40
-        }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{
           opacity: 1,
           y: 0,
-          transition:{
-            delay: 0.1,
-            duration: 0.5,
-            ease: "easeIn"
-          }
+          transition: { delay: 0.1, duration: 0.5, ease: "easeIn" },
         }}
-        className="bg-black/40 backdrop-blur-2xl w-[25em] h-[30em] p-6 rounded-xl mt-20 gap-6 flex flex-col"
+        className="bg-black/40 backdrop-blur-2xl w-[25em] min-h-[30em] p-6 rounded-xl mt-20 gap-6 flex flex-col"
       >
-        <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-linear-270 from-appricon-500 via-pink-800 to-cherry-500">Get me hired</h1>
+        <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-appricon-500 via-pink-800 to-cherry-500">
+          Get me hired
+        </h1>
+
         <p className="text-gray-400 text-sm">You can directly email me from here.</p>
-        <div className="flex flex-col gap-4">
+
+        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
           <div className="relative flex items-center">
             <img width={26} className="absolute opacity-80 top-[19%] left-[1%]" src="/person.svg" alt="" />
-            <input className="px-2 w-full py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl" type="text" placeholder="Username" />
+            <input
+              name="name"
+              className="px-2 w-full py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl"
+              type="text"
+              placeholder="Username"
+              required
+            />
           </div>
           <div className="relative flex items-center">
             <img width={26} className="absolute opacity-80 top-[19%] left-[1%]" src="/email.svg" alt="" />
-            <input className="px-2 w-full py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl" type="email" placeholder="Your Email" />
+            <input
+              name="email"
+              className="px-2 w-full py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl"
+              type="email"
+              placeholder="Your Email"
+              required
+            />
           </div>
           <div className="relative flex items-center">
             <img width={26} className="absolute opacity-80 top-[8%] left-[2%]" src="/comment.svg" alt="" />
-            <textarea className="px-2 w-full h-[12em] max-h-[12em] py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl" type="email" placeholder="Enter Message" />
+            <textarea
+              name="message"
+              className="px-2 w-full h-[12em] max-h-[12em] py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl"
+              placeholder="Enter Message"
+              required
+            />
           </div>
-        </div>
+
+          {/* Hidden time field */}
+          <input
+            type="hidden"
+            name="time"
+            value={new Date().toLocaleString()}
+          />
+
+          <motion.button
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            type="submit"
+            className="bg-appricon-500/20 backdrop-blur-2xl hover:bg-appricon-600 text-white py-3 rounded-xl transition-all"
+          >
+            Submit
+          </motion.button>
+        </form>
       </motion.div>
-
+      <Toaster position="bottom-right" reverseOrder={false} />
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
+

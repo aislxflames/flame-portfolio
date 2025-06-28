@@ -25,7 +25,7 @@ const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("projects");
   return (
     <section id="portfolio" className={`portfolio overflow-y-scroll overflow-hidden flex justify-around md:px-20 font-montserrat h-[100vh] ${stylesbg.anibg} items-center `}>
-      <div className=" flex flex-col items-center md:mt-60 justify-center gap-2 ">
+      <div className=" flex flex-col items-center md:mt-60 mt-80 justify-center gap-2 ">
         <motion.h1 variants={middleVariant} initial="hidden" whileInView="show" custom={0} className="text-shadow-[0_0_25px_red]  md:text-4xl text-2xl font-extrabold text-transparent bg-clip-text bg-linear-90 from-appricon-500 to-cherry-500">Portfolio Showcase</motion.h1>
         <motion.p variants={middleVariant} initial="hidden" whileInView="show" custom={1} className="text-sm md:w-[70%] w-[90%] text-center">
           <TypeAnimation

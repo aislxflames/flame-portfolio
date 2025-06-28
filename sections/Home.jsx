@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className={`flex md:flex-row flex-col md:justify-around justify-center md:px-20 sm:px-10 px-5 font-montserrat h-[100vh] ${stylesbg.anibg} items-center overflow-hidden`}
+      className={`flex md:flex-row flex-col-reverse md:justify-around justify-center md:px-20 sm:px-10 px-5 font-montserrat h-[100vh] ${stylesbg.anibg} items-center overflow-hidden`}
     >
       <div className="left relative flex flex-col gap-5">
         <div className='z-10 flex flex-col gap-5 md:items-start items-center'>
@@ -154,7 +154,7 @@ const Home = () => {
         >
           <img
 
-            className={`${styles.float} w-[50vw] md:w-[60vw] lg:w-[45rem]`}
+            className={`${styles.float} w-[22rem] md:w-[40rem] lg:w-[45rem]`}
             src="/computer.png"
             alt=""
           />
