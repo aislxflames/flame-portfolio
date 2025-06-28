@@ -6,22 +6,23 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
   const form = useRef(null);
-  const [sent, setSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
+    setIsSending(true);
+
     emailjs
       .sendForm(
-        "service_8kodu14",         // your EmailJS service ID
-        "template_isgkobu",        // your EmailJS template ID
+        "service_8kodu14",
+        "template_isgkobu",
         form.current,
-        "i4xL3wKbhCajbjElb"        // your EmailJS public key
+        "i4xL3wKbhCajbjElb"
       )
       .then(
         (result) => {
           console.log("Email sent:", result.text);
-          setSent(true);
           toast.success("Message sent!", {
             style: {
               borderRadius: '10px',
@@ -29,6 +30,7 @@ const Contact = () => {
               color: '#fff',
             },
           });
+          form.current.reset(); // Clear form fields
         },
         (error) => {
           console.error("Email failed:", error.text);
@@ -40,7 +42,10 @@ const Contact = () => {
             },
           });
         }
-      );
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
@@ -72,6 +77,7 @@ const Contact = () => {
               type="text"
               placeholder="Username"
               required
+              disabled={isSending}
             />
           </div>
           <div className="relative flex items-center">
@@ -82,6 +88,7 @@ const Contact = () => {
               type="email"
               placeholder="Your Email"
               required
+              disabled={isSending}
             />
           </div>
           <div className="relative flex items-center">
@@ -91,6 +98,7 @@ const Contact = () => {
               className="px-2 w-full h-[12em] max-h-[12em] py-4 pl-10 outline-0 bg-gray-950/30 rounded-xl"
               placeholder="Enter Message"
               required
+              disabled={isSending}
             />
           </div>
 
@@ -102,13 +110,16 @@ const Contact = () => {
           />
 
           <motion.button
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: isSending ? 1 : 1.06 }}
+            whileTap={{ scale: isSending ? 1 : 0.9 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             type="submit"
-            className="bg-appricon-500/20 backdrop-blur-2xl hover:bg-appricon-600 text-white py-3 rounded-xl transition-all"
+            disabled={isSending}
+            className={`${
+              isSending ? "opacity-70 cursor-not-allowed" : "hover:bg-appricon-600"
+            } bg-appricon-500/20 backdrop-blur-2xl text-white py-3 rounded-xl transition-all`}
           >
-            Submit
+            {isSending ? "Sending..." : "Submit"}
           </motion.button>
         </form>
       </motion.div>
