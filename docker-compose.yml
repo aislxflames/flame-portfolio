@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   nextjs-app:
@@ -7,7 +7,9 @@ services:
     working_dir: /app
     command: sh -c "npm install && npm run build && npm run start"
     ports:
-      - "${HOST_PORT}:3000" # Host:Container
+      - "${HOST_PORT}:3000"
+    expose:
+      - "3000"
     environment:
-      NODE_ENV: production # Only fixed variables here
+      NODE_ENV: production
     restart: unless-stopped
